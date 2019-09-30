@@ -26,6 +26,7 @@
 
 #ifdef VIXL_INCLUDE_SIMULATOR_AARCH64
 
+#include <chrono>
 #include <cmath>
 #include <cstring>
 #include <limits>
@@ -3957,6 +3958,11 @@ void Simulator::VisitSystem(const Instruction* instr) {
             // returned in a period of time.
             ReadNzcv().SetRawValue(NoFlag);
             LogSystemRegister(NZCV);
+            break;
+          }
+          case CNTVCT_EL0: {
+            uint64_t Time = std::chrono::high_resolution_clock::now().time_since_epoch().count();
+            WriteXRegister(instr->GetRt(), Time);
             break;
           }
           default:
