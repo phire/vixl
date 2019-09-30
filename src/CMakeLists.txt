@@ -5,7 +5,7 @@ add_definitions(-DVIXL_CODE_BUFFER_MMAP=1)
 add_definitions(-DVIXL_INCLUDE_SIMULATOR_AARCH64=1)
 
 if(CMAKE_BUILD_TYPE MATCHES DEBUG)
-  add_definitions(-DVIXL_ASSERT=1)
+  add_definitions(-DVIXL_DEBUG=1)
 endif()
 
 set(SRCS
