@@ -19,6 +19,7 @@ set(SRCS
   aarch64/decoder-aarch64.cc
   aarch64/disasm-aarch64.cc
   aarch64/instructions-aarch64.cc
+  aarch64/instrument-aarch64.cc
   aarch64/logic-aarch64.cc
   aarch64/macro-assembler-aarch64.cc
   aarch64/operands-aarch64.cc
