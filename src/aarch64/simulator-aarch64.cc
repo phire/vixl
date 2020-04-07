@@ -1926,8 +1926,8 @@ void Simulator::CompareAndSwapPairHelper(const Instruction* instr) {
   // associated with that location, even if the compare subsequently fails.
   local_monitor_.Clear();
 
-  T data_high = Memory::Read<T>(address);
-  T data_low = Memory::Read<T>(address2);
+  T data_high = Memory::Read<T>(address2);
+  T data_low = Memory::Read<T>(address);
 
   if (is_acquire) {
     // Approximate load-acquire by issuing a full barrier after the load.
@@ -1942,8 +1942,8 @@ void Simulator::CompareAndSwapPairHelper(const Instruction* instr) {
       __sync_synchronize();
     }
 
-    Memory::Write<T>(address, newvalue_high);
-    Memory::Write<T>(address2, newvalue_low);
+    Memory::Write<T>(address2, newvalue_high);
+    Memory::Write<T>(address, newvalue_low);
   }
 
   WriteRegister<T>(rs + 1, data_high);
