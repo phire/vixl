@@ -5054,6 +5054,9 @@ LogicVRegister Simulator::fcvtn(VectorFormat vform,
     for (int i = 0; i < LaneCountFromFormat(vform); i++) {
       dst.SetFloat(i, FPToFloat(src.Float<double>(i), FPTieEven, ReadDN()));
     }
+    // Clear upper elements to zero
+    dst.SetFloat(2, 0.0f);
+    dst.SetFloat(3, 0.0f);
   }
   return dst;
 }
