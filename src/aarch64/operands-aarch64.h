@@ -373,6 +373,7 @@ class VRegister : public CPURegister {
   VRegister V4S() const { return VRegister(code_, kQRegSize, 4); }
   VRegister V2D() const { return VRegister(code_, kQRegSize, 2); }
   VRegister V1D() const { return VRegister(code_, kDRegSize, 1); }
+  VRegister VCast(uint8_t RegSize, uint8_t ElementCount) { return VRegister(code_, RegSize, ElementCount); }
 
   bool Is8B() const { return (Is64Bits() && (lanes_ == 8)); }
   bool Is16B() const { return (Is128Bits() && (lanes_ == 16)); }
