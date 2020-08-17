@@ -70,6 +70,7 @@ const IDRegister::Field AA64ISAR1::kSB(36);
 const IDRegister::Field AA64ISAR1::kSPECRES(40);
 
 const IDRegister::Field AA64MMFR1::kLO(16);
+const IDRegister::Field AA64MMFR2::kAT(32);
 
 CPUFeatures AA64PFR0::GetCPUFeatures() const {
   CPUFeatures f;
@@ -129,6 +130,12 @@ CPUFeatures AA64ISAR1::GetCPUFeatures() const {
 CPUFeatures AA64MMFR1::GetCPUFeatures() const {
   CPUFeatures f;
   if (Get(kLO) >= 1) f.Combine(CPUFeatures::kLORegions);
+  return f;
+}
+
+CPUFeatures AA64MMFR2::GetCPUFeatures() const {
+  CPUFeatures f;
+  if (Get(kAT) >= 1) f.Combine(CPUFeatures::kAT);
   return f;
 }
 

@@ -157,6 +157,16 @@ class AA64MMFR1 : public IDRegister {
   static const Field kLO;
 };
 
+class AA64MMFR2 : public IDRegister {
+ public:
+  explicit AA64MMFR2(uint64_t value) : IDRegister(value) {}
+
+  CPUFeatures GetCPUFeatures() const;
+
+ private:
+  static const Field kAT;
+};
+
 class CPU {
  public:
   // Initialise CPU support.
@@ -216,7 +226,8 @@ class CPU {
   V(AA64PFR1)                       \
   V(AA64ISAR0)                      \
   V(AA64ISAR1)                      \
-  V(AA64MMFR1)
+  V(AA64MMFR1)                      \
+  V(AA64MMFR2)
 
 #define VIXL_READ_ID_REG(NAME) static NAME Read##NAME();
   // On native AArch64 platforms, read the named CPU ID registers. These require

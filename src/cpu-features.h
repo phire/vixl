@@ -104,7 +104,10 @@ namespace vixl {
   /* Random number generation extension,                                    */ \
   V(kRNG,                 "RNG",                    NULL)                      \
   /* Floating-point round to {32,64}-bit integer.                           */ \
-  V(kFrintToFixedSizedInt,"Frint (bounded)",        NULL)
+  V(kFrintToFixedSizedInt,"Frint (bounded)",        NULL)                      \
+  /* Unaligned single-copy atomicity and atomic functions                   */ \
+  V(kAT,                  "AT",                     NULL)                      \
+
 // clang-format on
 
 
