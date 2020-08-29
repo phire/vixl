@@ -218,7 +218,7 @@ class InvalSet {
   // Iterators acquire and release this monitor. While a set is acquired,
   // certain operations are illegal to ensure that the iterator will
   // correctly iterate over the elements in the set.
-  int monitor_;
+  int monitor_{};
 #ifdef VIXL_DEBUG
   int monitor() const { return monitor_; }
   void Acquire() { monitor_++; }
@@ -304,7 +304,7 @@ class InvalSetIterator : public std::iterator<std::forward_iterator_tag,
   // the vector to track how many times the iterator has advanced.
   size_t index_;
   typename std::vector<ElementType>::iterator iterator_;
-  S* inval_set_;
+  S* inval_set_{};
 
   // TODO: These helpers are deprecated and will be removed in future versions
   // of VIXL.
