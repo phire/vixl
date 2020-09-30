@@ -3618,6 +3618,12 @@ class Assembler : public vixl::internal::AssemblerBase {
              const VRegister& vm,
              int rot);
 
+  // FP pairwise minimum scalar.
+  void aese(const VRegister& vd, const VRegister& vn);
+  void aesd(const VRegister& vd, const VRegister& vn);
+  void aesmc(const VRegister& vd, const VRegister& vn);
+  void aesimc(const VRegister& vd, const VRegister& vn);
+
   // Emit generic instructions.
 
   // Emit raw instructions into the instruction stream.
